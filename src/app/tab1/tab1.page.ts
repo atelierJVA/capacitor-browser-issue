@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Browser } from '@capacitor/browser';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,26 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  booleanValue;
 
+  constructor() {
+    Browser.addListener('browserFinished', () => {
+      alert('browserFinished');
+      this.booleanValue = true;
+    });
+  }
+
+  async openBrowser(urlInput) {
+    this.booleanValue = false;
+    await Browser.open({url: urlInput});
+
+  }
+
+  toggleValue() {
+    this.booleanValue = !this.booleanValue;
+  }
+
+  alert() {
+    window.alert('Hi');
+  }
 }
