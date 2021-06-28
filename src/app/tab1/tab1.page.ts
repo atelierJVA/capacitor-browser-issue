@@ -8,7 +8,7 @@ import { Browser } from '@capacitor/browser';
 })
 export class Tab1Page {
 
-  booleanValue;
+  booleanValue = false;
 
   constructor() {
     Browser.addListener('browserFinished', () => {
@@ -26,7 +26,7 @@ export class Tab1Page {
     this.booleanValue = !this.booleanValue;
   }
 
-  alert() {
-    window.alert('Hi');
+  do_something() {
+    const ignored = 1;
   }
 }
