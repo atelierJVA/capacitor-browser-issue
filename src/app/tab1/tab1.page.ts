@@ -12,7 +12,6 @@ export class Tab1Page {
 
   constructor() {
     Browser.addListener('browserFinished', () => {
-      alert('browserFinished');
       this.booleanValue = true;
     });
   }
